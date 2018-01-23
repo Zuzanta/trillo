@@ -15,6 +15,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -122,6 +128,11 @@
 //////// SIDE NAVIGATION
 .side-nav {
 
+  @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      margin: 0;
+  }
+
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
@@ -131,6 +142,14 @@
 
         &:not(:last-child) {
           margin-bottom: .5rem;
+
+          @media only screen and (max-width: $bp-medium) {
+              margin: 0;
+          }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
         }
     }
 
@@ -173,6 +192,16 @@
         position: relative;
         z-index: 10;
 
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          flex-direction: column;
+          padding: 1rem .5rem;
+        }
+
     }
 
     &__icon {
@@ -180,6 +209,13 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -190,6 +226,10 @@
     color: var(--color-grey-dark-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 
 }
 
@@ -220,6 +260,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
 
     }
 
@@ -257,17 +302,29 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+          padding: 0 1.5rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: .5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 1.8rem;
+        }
     }
 }
 
@@ -350,15 +407,18 @@
         width: 1rem;
         margin-right: .7rem;
         //Older browsers
-        //background-image: url('../img/chevron-thin-right.svg');
-        //background-size: cover;
+        background-image: url('../img/chevron-thin-right.svg');
+        background-size: cover;
 
         //New browsers - masks
-        background-color: var(--color-primary);
-        -webkit-mask-image: url('../img/chevron-thin-right.svg');
-        -webkit-mask-size: cover;
-        mask-image: url('../img/chevron-thin-right.svg');
-        mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+          background-color: var(--color-primary);
+          -webkit-mask-image: url('../img/chevron-thin-right.svg');
+          -webkit-mask-size: cover;
+          mask-image: url('../img/chevron-thin-right.svg');
+          mask-size: cover;
+          background-image: none;
+        }
 
     }
 }
@@ -379,6 +439,8 @@
 
     &__friends {
         margin-left: auto;
+        display: flex;
+
     }
 
     &__photo {
@@ -404,6 +466,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
 
     &__text {
@@ -465,6 +532,10 @@
 
     padding: 3.5rem 0;
     text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;
